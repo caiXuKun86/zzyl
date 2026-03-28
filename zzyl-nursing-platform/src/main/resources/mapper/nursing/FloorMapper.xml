@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzyl.nursing.mapper.FloorMapper">
+
+    <resultMap type="Floor" id="FloorResult">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="code" column="code"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+
+    <sql id="selectFloorVo">
+        select id,
+               name,
+               code,
+               create_time,
+               update_time,
+               create_by,
+               update_by,
+               remark
+        from floor
+    </sql>
+
+    <resultMap id="TreeVoResultMap" type="com.zzyl.nursing.vo.TreeVo">
+        <id column="fid" property="value"/>
+        <result column="fname" property="label"/>
+        <collection property="children" ofType="com.zzyl.nursing.vo.TreeVo">
+            <id column="rid" property="value"/>
+            <result column="rname" property="label"/>
+            <collection property="children" ofType="com.zzyl.nursing.vo.TreeVo">
+                <id column="bid" property="value"/>
+                <result column="bname" property="label"/>
+            </collection>
+        </collection>
+    </resultMap>
+    <select id="selectAllByNur" resultType="com.zzyl.nursing.domain.Floor">
+        select f.*
+        from floor f
+                 left join room r on r.floor_id = f.id
+                 left join bed b on b.room_id = r.id
+                 left join elder e on e.bed_id = b.id
+        where b.bed_status = 1
+        group by f.id
+        order by code, create_time desc
+    </select>
+    <select id="getRoomAndBedByBedStatus" resultMap="TreeVoResultMap" >
+
+        select f.id fid, f.name fname, r.id rid, r.code rname, b.id bid, b.bed_number bname
+        from floor f
+                 left join room r on f.id = r.floor_id
+                 left join bed b on r.id = b.room_id
+        where b.bed_status = 0
+        order by f.id, r.id, b.id;
+
+    </select>
+</mapper>

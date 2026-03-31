@@ -203,3 +203,7 @@ ai:
   apiKey: sk-d4fe6aa32e314d2d8fc261f6ef3307fb
   baseUrl: https://api.deepseek.com
   model: deepseek-chat
+
+wechat:
+  appId: wx9033622bdc68ad7c
+  appSecret: 249a00e04d9cdb3598b72354b87d378c

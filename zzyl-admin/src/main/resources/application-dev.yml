@@ -207,3 +207,15 @@ ai:
 wechat:
   appId: wx9033622bdc68ad7c
   appSecret: 249a00e04d9cdb3598b72354b87d378c
+
+huaweicloud:
+
+  #如果是上海一，请填写"cn-east-3"；如果是北京四，请填写"cn-north-4";
+  regionId: cn-north-4
+  endpoint: 3c0c6bef0e.st1.iotda-app.cn-north-4.myhuaweicloud.com
+  projectId: 82addef445d94ff6b42e01fe0b4944e9
+  #amqp相关配置 下一章课程接收设备数据使用
+  host: 3c0c6bef0e.st1.iotda-app.cn-north-4.myhuaweicloud.com
+  accessKey: TVorqYDi
+  accessCode: mCn4ViKGVhAyGv6QE2cqicdzvZ1bniIn
+  queueName: DefaultQueue   #默认无需改动

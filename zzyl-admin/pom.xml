@@ -72,7 +72,10 @@
             <groupId>com.zzyl</groupId>
             <artifactId>zzyl-oss</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

@@ -58,6 +58,16 @@
             <groupId>com.zzyl</groupId>
             <artifactId>zzyl-system</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.huaweicloud.sdk</groupId>
+            <artifactId>huaweicloud-sdk-core</artifactId>
+            <version>3.1.76</version>
+        </dependency>
+        <dependency>
+            <groupId>com.huaweicloud.sdk</groupId>
+            <artifactId>huaweicloud-sdk-iotda</artifactId>
+            <version>3.1.76</version>
+        </dependency>
 
     </dependencies>
 
